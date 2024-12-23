@@ -20,6 +20,7 @@
             <a href="#experience">Experience</a>&nbsp;&nbsp;
             <a href="#skills">Skills</a>&nbsp;&nbsp;
             <a href="#projects">Project</a>&nbsp;&nbsp;
+            <a href="#test">Test</a>&nbsp;&nbsp;
             <a href="https://www.linkedin.com/in/pankaj-ram-642176219/" target="_blank">LinkedIn</a>&nbsp;&nbsp;
             <a href="/image/Resume.pdf" style="color: aqua;" class="cv" target="_blank">Download CV</a>
         </div>
@@ -88,13 +89,16 @@
 <section id="skills">
     <h2>Skills</h2>
     <div class="skills-item">
-        <p>HTML, CSS, JavaScript</p>
+        <p>Frontend: React, HTML5, CSS3, JavaScript, Bootstrap</p>
     </div>
     <div class="skills-item">
-        <p>Node.js, React.js, Express</p>
+        <p>Backend: Node.js, Express.js, RESTful API, (JSON Web Tokens), Authentication & Authorization</p>
     </div>
     <div class="skills-item">
-        <p>SQL, Mysql</p>
+        <p>Database: MongoDB, Mongoose</p>
+    </div>
+    <div class="skills-item">
+        <p>Version Control: Git, GitHub.</p>
     </div>
 </section>
 <hr style="color: aqua; padding: 2px; background-color: aqua; margin-top: 40px;">
@@ -120,6 +124,7 @@
 
 
     <!-- Contact form -->
+<form action="/homepage/contactme" method="post">
     <h2 class="main-h1">Contact us </h2><br>
      <section id="#contact-main">
         <div id="contact-container">
@@ -128,13 +133,13 @@
                     <h3 class="cont-center">Send us a message</h3>
                     <form action="">
                         <div class="form-group">
-                            <input type="text" name="name" id="" placeholder="Your Name">
+                            <input type="text" name="contact[name]" id="" placeholder="Your Name">
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" id="" placeholder="Your Email">
+                            <input type="email" name="contact[email]" id="" placeholder="Your Email">
                         </div>
                         <div class="form-group">
-                            <textarea name="name" id="" placeholder="Your message"></textarea>
+                            <textarea name="contact[message]" placeholder="Your message"></textarea>
                         </div>
                         <button type="submit">Send Message</button>
                     </form>
@@ -156,6 +161,7 @@
             </div>
         </div>
     </section>
+</form>
 <hr style="color: aqua; padding: 2px; background-color: aqua; margin-top: 40px;">
 <footer>
     <div class="footerContainer">

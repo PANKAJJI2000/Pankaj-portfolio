@@ -28,6 +28,20 @@ async function main() {
 app.get("/", (req,res)=>{
     res.render("index.ejs");
 });
+app.post("/contactme", async (req, res) => {
+    try {
+        // Create a new contact using the Contact model
+        const newContact = new Contact(req.body.contact);
+        
+        // Save the new contact to the database
+        await newContact.save();
+        
+        res.send('User data saved successfully!');
+    } catch (err) {
+        console.log('Error saving user data:', err);
+        res.send('Error saving data');
+    }
+});
 
 app.get("/pankaj", (req,res) =>{
     res.send("Your are on : Pankaj Portfolio");
