@@ -236,9 +236,11 @@ button:hover {
 /* education section */
 
 #education {
-    background-color: black;
+    height: 100vh;
+    background-color: red;
     padding: 20px;
     margin: 20px 0;
+    scroll-behavior: smooth;
 }
 #education h2 {
     font-size: 2em;
