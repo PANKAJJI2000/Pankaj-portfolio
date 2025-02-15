@@ -70,34 +70,7 @@ span{
     box-shadow: 0 0 25px aqua;
     columns: white;
 }
-.home{
-    width: 100%;
-    min-height: 100vh;
-    background-color: #1a1a1a;
-    display: flex;
-    align-items: center;
-    gap: 7em;
-    padding: 30px 12% 0;
-    color: white;
-    z-index: 1;
-    margin-left: -20px;
-}
-.home-content{
-    max-width: 800px;
-    margin-left: -30px;
-}
-.homes-content h3{
-    font-size: 42px;
-}
-.homes-content h1{
-    font-size: 62px;
-    line-height: 1.2;
-}
-.homes-content p{
-    font-size: 20px;
-    margin: 25px 0 30px;
-    color: white;
-}
+
 .nav a{   
     color: white;
     font-size: 1.3rem;
@@ -114,29 +87,7 @@ span{
 .nav .cv a:hover{
     color: rgb(209, 209, 209);
 }
-.img-box img{
-    width: 130%;
-    
-}
-.btn-1, .btn-2{
-    padding: 10px;
-    background-color: aqua;
-    border: 2px solid transparent;
-    border-radius: 8px;
-    font-size: 16px;
-    letter-spacing: 1px;
-    font-weight: 600;
-    transition: 0.3s ease;
-}
-.btn-1 a, .btn-2 a{
-    color: black;
-}
-.btn-1 a:hover ,.btn-2 a:hover{
-    background-color: white;
-    columns: white;
-    scale: 1.03;
-    transition:all 0.04s ease-in-out;
-}
+
 
 /* contact style */
 
@@ -246,6 +197,7 @@ button:hover {
     background-color: black;
     padding: 20px;
     margin: 20px 0;
+    width: 100%;
     scroll-behavior: smooth;
 }
 #education h2 {
@@ -452,5 +404,202 @@ footer{
         width: 100%;
         text-align: center;
         margin: 10px;
+    }
+}
+
+/* main section page */
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 50px;
+    gap: 20px;
+    height: 97vh;
+    
+}
+
+.home-content {
+    flex: 1;
+    max-width: 600px;
+    margin-left: 3rem;
+}
+
+.homes-content h1,h3 {
+    font-size: 3.5rem;
+    line-height: 1.3;
+}
+
+.homes-content h3 {
+    font-size: 1.8rem;
+}
+
+.aboutus {
+    font-size: 1rem;
+    color: #ffffff;
+    margin-bottom: 15px;
+}
+
+.btn-box {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-box button {
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-box button a {
+    text-decoration: none;
+    color: black;
+}
+
+.btn-1 {
+    background-color: aqua;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.btn-2 {
+    background-color: aqua;
+    border: 2px solid transparent;
+    border-radius: 8px;
+}
+
+.btn-1 a, .btn-2 a{
+    color: black;
+}
+.btn-1:hover ,.btn-2:hover{
+    background-color: white;
+    box-sizing: border-box;
+    box-shadow: 1px 1px 9px 3px aqua;
+}
+.img-box {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    /* margin-top: 6rem; */
+    
+}
+
+.img-box img {
+    max-width: 100%;
+    height: auto;
+    width: 50vh;
+    border-radius: 10px;
+    margin-right: -18rem;
+}
+
+/* RESPONSIVENESS */
+@media (max-width: 1550px) {
+    .img-box{
+        margin-right: 3rem;
+    }
+}
+@media (max-width: 1550px) {
+    .img-box{
+        width: 30vh;
+        ;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .home {
+        flex-direction: column;
+        text-align: center;
+    }
+    .img-box{
+        justify-content: center;
+        margin-left: -3rem;
+        
+    }
+
+    .home-content {
+        max-width: 100%;
+    }
+
+    .homes-content h1 {
+        font-size: 2rem;
+        margin-top: 10px;
+    }
+
+    .homes-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .aboutus {
+        font-size: 0.9rem;
+    }
+
+    .btn-box {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .home {
+        padding: 30px;
+    }
+
+    .homes-content h1 {
+        font-size: 1.8rem;
+        margin-top: 10px;
+    }
+
+    .homes-content h1 {
+        font-size: 1.3rem;
+    }
+
+    .btn-box {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .btn-box button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .home {
+        padding: 20px;
+    }
+
+    .homes-content h1 {
+        font-size: 1.5rem;
+        margin-top: 10px;
+    }
+
+    .homes-content h1 {
+        font-size: 1.2rem;
+    }
+
+    .aboutus {
+        font-size: 0.8rem;
+    }
+}
+
+/* Mobile View */
+@media (max-width: 950px) {
+    
+    .contact_us {
+        margin-top: 10px;
+        display: block;
+        text-align: center;
+    }
+}
+
+/* Extra Small Screens */
+@media (max-width: 480px) {
+
+    .contact_us {
+        font-size: 0.9rem;
+        padding: 8px 12px;
     }
 }
