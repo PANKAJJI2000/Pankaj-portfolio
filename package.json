@@ -5,17 +5,20 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "build": "tsc && webpack --mode production"
+    "build": "tsc && webpack --mode production",
+    "type": "module"
   },
   "author": "Pankaj Bharti",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "ejs": "^3.1.10",
     "express": "^4.21.2",
     "method-override": "^3.0.0",
-    "mongoose": "^8.10.1"
+    "mongoose": "^8.12.1",
+    "typed.js": "^2.1.0"
   },
   "keywords": [],
   "description": ""

@@ -1,75 +1,52 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
-const path = require("path");
-const cors = require("cors");
+import dotenv from 'dotenv';
+import express from 'express';
+import bodyParser from 'body-parser';
+import mongoose from 'mongoose';
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+import cors from 'cors';
+import contactRoutes from './routes/contactRoutes.js';
+
+// Configure dotenv to load environment variables
+dotenv.config();
+
+// Create __dirname equivalent for ES modules
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware
-app.set("views", path.join(__dirname, "/index"));
-app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "/public")));
+app.set('views', join(__dirname, 'views'));
+app.set('view engine', 'ejs');
+app.use(express.static(join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/myportfoliodata", {
+// MongoDB Atlas connection string
+const atlasUri = process.env.MONGO_URI;
+
+// Connect to MongoDB Atlas
+mongoose.connect(atlasUri, {
     useNewUrlParser: true,
-    useUnifiedTopology: true,
-}).then(() => console.log("✅ MongoDB Connected Successfully!"))
-  .catch(err => console.log("❌ MongoDB Connection Failed:",err));
-
-// Define Contact Schema
-const contactSchema = new mongoose.Schema({
-    name: String,
-    email: String,
-    message: String
+    useUnifiedTopology: true
+}).then(() => {
+    console.log('Connected to MongoDB Atlas');
+}).catch(err => {
+    console.error('Error connecting to MongoDB Atlas', err);
 });
 
+// Routes
+app.use('/', contactRoutes);
 
-const Contact = mongoose.model("Contact", contactSchema);
-
-app.get("/", (req, res) => {
-  res.render("index.ejs");
+// Serve the home page
+app.get('/', (req, res) => {
+    res.render('index');
 });
 
-app.post("/user", async (req, res) => {
-  console.log("Received Data:", req.body); // Confirm data is received
-
-  const { name, email, message } = req.body;
-
-  if (!name || !email || !message) {
-      return res.status(400).json({ error: "All fields are required" });
-  }
-
-  try {
-      const newContact = new Contact({ name, email, message });
-      const savedContact = await newContact.save(); // Save to MongoDB
-      console.log("✅ Data successfully saved:", savedContact);
-
-      res.json({ message: "Contact saved successfully", redirect: "/" }); // Send success response
-  } catch (error) {
-      console.error("❌ Error saving data:", error);
-      res.status(500).json({ error: "Internal server error" });
-  }
-});
-
-
-app.get("/user", async (req, res) => {
-    try {
-        const contacts = await Contact.find();
-        res.json(contacts);
-    } catch (error) {
-        res.status(500).json({ error: "Error fetching contacts" });
-    }
-  });
-
-
-
+// Start the server
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
 });
-
