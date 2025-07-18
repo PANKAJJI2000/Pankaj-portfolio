@@ -25,10 +25,8 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.use(cors());
 
-// MongoDB Atlas connection string
 const atlasUri = process.env.MONGO_URI;
 
-// Connect to MongoDB Atlas
 mongoose.connect(atlasUri, {
     useNewUrlParser: true,
     useUnifiedTopology: true
