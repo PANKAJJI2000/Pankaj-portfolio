@@ -6,7 +6,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
     "build": "tsc && webpack --mode production",
-    "type": "module"
+    "type": "module",
+    "install-server": "cd server && npm install",
+    "start-server": "cd server && node app.js",
+    "install-client": "cd client && npm install",
+    "build-client": "cd client && npm run build",
+    "start-client": "cd client && npm run start"
   },
   "author": "Pankaj Bharti",
   "license": "ISC",
@@ -20,6 +25,7 @@
     "mongoose": "^8.12.1",
     "typed.js": "^2.1.0"
   },
+  
   "keywords": [],
   "description": ""
 }
